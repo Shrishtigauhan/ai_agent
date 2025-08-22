@@ -205,11 +205,11 @@ with col_save:
     if st.button("Save note", type="primary", use_container_width=True, disabled=(len(note_text.strip()) == 0)):
         created = _add_note(note_text, helper, auto_summarize=auto_summarize_on_save)
         st.success(f"Saved note #{created.id} ({created.created_iso}).")
-        st.experimental_rerun()
+        st.rerun()
 
 with col_clear:
     if st.button("Clear draft", use_container_width=True, on_click=clear_draft):
-        st.experimental_rerun()
+        st.rerun()
 
 st.divider()
 
@@ -283,7 +283,8 @@ else:
                                 st.success("Updated summary & tags.")
                             except Exception as e:
                                 st.error(f"Failed: {e}")
-                        st.experimental_rerun()
+                        st.rerun()
 
 st.caption("---")
 st.caption("Notes With AI")
+
